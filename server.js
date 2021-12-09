@@ -23,7 +23,7 @@ var con = mysql.createConnection({
     password: "unigran",
     database: "mydb"
 });
-
+var id;
 
 app.post('/', async (req, res) => {
     res.render('index.html');
@@ -34,14 +34,17 @@ app.post('/login', async (req, res) => {
     let senha = req.body.password;
     let usernameDB;
     let senhaDB;
+    let idS;
+    let idU;
 
-    con.query("SELECT name,senha FROM usuarios WHERE name = ? ", [username], function (err, result) {
+    con.query("SELECT name,senha,id FROM usuarios WHERE name = ? ", [username], function (err, result) {
 
-        if (result[0] == undefined) {
+        if (result[0] === undefined) {
             res.render('erro.html')
         }
         else if (result[0].name != undefined || result[0].name != null) {
             usernameDB = result[0].name
+            
         }
 
     })
@@ -58,6 +61,13 @@ app.post('/login', async (req, res) => {
 
     setTimeout(function () {
         if (username == usernameDB && senha == senhaDB) {
+            
+            con.query("SELECT id FROM usuarios WHERE (name,senha) = (?, ?)", [username,senha], function (err, result) {
+                if (err) throw err;
+                id = result[0].id
+                console.log(id)
+            })
+            
             res.render('dashboard.html')
         }
     }, 100);
@@ -89,18 +99,16 @@ app.get('/listarusuario', async (req, res) => {
 });
 
 app.post('/apagarusuario', async (req, res) => {
-    let id = req.body.id;
-
+    
     console.log('Debugger manual!')
-
-
-    var sql = "DELETE FROM usuarios id,name,senha WHERE id = ?";
+    var sql = "DELETE FROM usuarios WHERE id = ?";
     var values = [
         id
     ]
     con.query(sql, [values], function (err, result) {
-        if (err) throw err;
-        else res.render('redirectdelete.html');
+        if (err){
+            throw err;
+        } else res.render('redirect.html');
     })
 })
 
