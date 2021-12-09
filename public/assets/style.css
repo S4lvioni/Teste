@@ -1,0 +1,30 @@
+#container {
+    display: flex;
+    flex:1;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.inpute {
+    border-radius: 5px;
+    padding:5px;
+    margin-top: 2.5px;
+}
+
+.newuser{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#container-dash {
+    display: flex;
+    background-color: red;
+    flex:1;
+    justify-content:center
+}
+
+.teste{
+    font-size: 100px;
+}
