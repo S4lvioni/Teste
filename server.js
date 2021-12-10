@@ -111,7 +111,7 @@ app.post('/apagarusuario', async (req, res) => {
             throw err;
         }
     })
-    res.render('redirect.html');
+    res.render('redirectdelete.html');
 })
 
 let port = process.env.PORT || 3035;
