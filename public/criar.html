@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
     <title>Document</title>
 </head>
 <body>
+    <div id="container">
     <form action="/criarusuario" method="post">
         <label for="nome">Insira seu nome:</label>
-        <input type="text" name="nome" id="nome" placeholder="Nome:"><br>
+        <input class="inpute" type="text" name="nome" id="nome" placeholder="Nome:"><br>
         <label for="senha">Insira sua senha:</label>
-        <input type="text" name="senha" id="senha" placeholder="Senha:"><br>
-        <input type="submit" name="submit" id="submit"><br>
+        <input class="inpute" type="text" name="senha" id="senha" placeholder="Senha:"><br>
+        <div class="botaodireita">
+            <input class="inpute"  type="submit" name="submit" id="submit"><br>
+        </div>
+    
     </form>
+</div>
 </body>
 </html>

@@ -3,7 +3,7 @@
     flex:1;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     flex-direction: column;
 }
 
@@ -18,13 +18,41 @@
     font-weight: bold;
 }
 
-#container-dash {
+#containermain{
     display: flex;
-    background-color: red;
-    flex:1;
-    justify-content:center
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.teste{
-    font-size: 100px;
+#container-dash {
+    display: flex;
+    flex:1;
+    height: 100vh;
+    width: 50%;
+    flex-direction: column;
+    
+}
+#apagar {
+    width: 11em;
+    margin-top: 5px;
+}
+
+.tabela{
+    justify-content: center;
+    align-items: center;
+}
+
+.botaomeio{
+    display: flex;
+    justify-content: center;
+}
+.titulo{
+    text-align: left;
+}
+
+.botaodireita{
+    display:flex;
+    justify-content: flex-end;
+ 
 }

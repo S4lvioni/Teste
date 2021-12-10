@@ -100,16 +100,18 @@ app.get('/listarusuario', async (req, res) => {
 
 app.post('/apagarusuario', async (req, res) => {
     
-    console.log('Debugger manual!')
+    
     var sql = "DELETE FROM usuarios WHERE id = ?";
     var values = [
         id
     ]
+    
     con.query(sql, [values], function (err, result) {
         if (err){
             throw err;
-        } else res.render('redirect.html');
+        }
     })
+    res.render('redirect.html');
 })
 
 let port = process.env.PORT || 3035;
